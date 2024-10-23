@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Country from '../country/Country';
 
 const Countries = () => {
     const [countries, setCountries] = useState([]);
@@ -7,11 +8,17 @@ const Countries = () => {
         const url = `https://restcountries.com/v3.1/all`;
         fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setCountries(data))
     },[])
     return (
         <div>
-           <h3>this is countries page</h3> 
+           <h3>Countries: {countries.length} </h3> 
+           {
+            countries.map(country => <Country
+            key={country.cca3}
+            country={country}
+            ></Country>)
+           }
         </div>
     );
 };
