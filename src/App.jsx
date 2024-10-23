@@ -1,11 +1,12 @@
 import './App.css'
+import Countries from './components/countries/Countries'
 
 function App() {
 
   return (
     <>
       <h1>React Rest Countries</h1>
-    
+      <Countries></Countries>
     </>
   )
 }
